@@ -1,0 +1,433 @@
+Step: build-step-credential-initializer:
+
+{"level":"warn","ts":1552057396.7423277,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1552057396.742645,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-0:
+
+{"level":"warn","ts":1552057399.7465367,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1552057400.6027887,"logger":"fallback-logger","caller":"git-init/main.go:92","msg":"Successfully cloned \"https://github.com/voytekvoytek/testjenkinsx.git\" @ \"master\" in path \"/workspace\""}
+Step: build-step-jenkins:
+
+Picked up _JAVA_OPTIONS: -Xmx400m
+Started
+Running in Durability level: PERFORMANCE_OPTIMIZED
+  13.887 [id=33]	WARNING	i.f.k.c.i.VersionUsageUtils#alert: The client is using resource type 'customresourcedefinitions' with unstable version 'v1beta1'
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /tmp/jenkinsTests.tmp/jenkins7184489388106648720test/workspace/job
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withCredentials
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (CI Build and push snapshot)
+Stage "CI Build and push snapshot" skipped due to when conditional
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build Release)
+[Pipeline] git
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/voytekvoytek/testjenkinsx.git # timeout=10
+Fetching upstream changes from https://github.com/voytekvoytek/testjenkinsx.git
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/voytekvoytek/testjenkinsx.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision b6a8dfb701cf9782f8b44849153bc0f31bc91fc4 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f b6a8dfb701cf9782f8b44849153bc0f31bc91fc4
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D master # timeout=10
+ > git checkout -b master b6a8dfb701cf9782f8b44849153bc0f31bc91fc4
+Commit message: "Draft create"
+First time build. Skipping changelog.
+[Pipeline] sh
++ jx-release-version
++ echo 0.0.1
+[Pipeline] sh
++ skaffold version
+v0.24.0
+[Pipeline] sh
++ cat VERSION
++ export VERSION=0.0.1
++ skaffold build -f skaffold.yaml
+time="2019-03-08T15:04:47Z" level=warning msg="config version (skaffold/v1beta2) out of date: upgrading to latest (skaffold/v1beta6)"
+Generating Tag for [changeme]...
+Starting build...
+Building [changeme]...
+time="2019-03-08T15:04:47Z" level=warning msg="Error processing base image (jenkinsxio/jenkinsx:0.0.43) for ONBUILD triggers: getting remote config: getting image: Get https://auth.docker.io/token?scope=repository%3Ajenkinsxio%2Fjenkinsx%3Apull&service=registry.docker.io: exit status 1. Dependencies may be incomplete."
+Sending build context to Docker daemon  3.072kB
+Step 1/3 : FROM jenkinsxio/jenkinsx:0.0.43
+0.0.43: Pulling from jenkinsxio/jenkinsx
+a5a6f2f73cd8: Pulling fs layer
+38f6dd39b858: Pulling fs layer
+43e0730514ff: Pulling fs layer
+73dae24989f4: Pulling fs layer
+3c22fac40b66: Pulling fs layer
+dbac173c1029: Pulling fs layer
+73dae24989f4: Waiting
+3c22fac40b66: Waiting
+13376592ef33: Pulling fs layer
+35c66b68003d: Pulling fs layer
+492e724a2ef4: Pulling fs layer
+04fd513cac7e: Pulling fs layer
+73ce08fe3572: Pulling fs layer
+30d9dea4b011: Pulling fs layer
+dbac173c1029: Waiting
+13376592ef33: Waiting
+35c66b68003d: Waiting
+492e724a2ef4: Waiting
+04fd513cac7e: Waiting
+73ce08fe3572: Waiting
+9cc3a2096311: Pulling fs layer
+3a40bc726b4e: Pulling fs layer
+812a6dcaec85: Pulling fs layer
+756eeba3b167: Pulling fs layer
+a3c027b2f9fb: Pulling fs layer
+2747e6c8d819: Pulling fs layer
+deac9051b738: Pulling fs layer
+30d9dea4b011: Waiting
+82e1d004f308: Pulling fs layer
+bf691e1ca659: Pulling fs layer
+3665ad25ef38: Pulling fs layer
+4605281e072a: Pulling fs layer
+8a61e19ddca3: Pulling fs layer
+da10371a0dd3: Pulling fs layer
+9cc3a2096311: Waiting
+3a40bc726b4e: Waiting
+812a6dcaec85: Waiting
+756eeba3b167: Waiting
+3665ad25ef38: Waiting
+a3c027b2f9fb: Waiting
+4605281e072a: Waiting
+2747e6c8d819: Waiting
+8a61e19ddca3: Waiting
+da10371a0dd3: Waiting
+deac9051b738: Waiting
+82e1d004f308: Waiting
+43e0730514ff: Verifying Checksum
+43e0730514ff: Download complete
+38f6dd39b858: Download complete
+a5a6f2f73cd8: Verifying Checksum
+a5a6f2f73cd8: Download complete
+73dae24989f4: Verifying Checksum
+73dae24989f4: Download complete
+dbac173c1029: Verifying Checksum
+dbac173c1029: Download complete
+3c22fac40b66: Verifying Checksum
+3c22fac40b66: Download complete
+35c66b68003d: Verifying Checksum
+35c66b68003d: Download complete
+492e724a2ef4: Verifying Checksum
+492e724a2ef4: Download complete
+a5a6f2f73cd8: Pull complete
+38f6dd39b858: Pull complete
+43e0730514ff: Pull complete
+73dae24989f4: Pull complete
+73ce08fe3572: Verifying Checksum
+73ce08fe3572: Download complete
+04fd513cac7e: Verifying Checksum
+04fd513cac7e: Download complete
+13376592ef33: Verifying Checksum
+13376592ef33: Download complete
+30d9dea4b011: Verifying Checksum
+30d9dea4b011: Download complete
+9cc3a2096311: Verifying Checksum
+9cc3a2096311: Download complete
+812a6dcaec85: Verifying Checksum
+812a6dcaec85: Download complete
+756eeba3b167: Verifying Checksum
+756eeba3b167: Download complete
+a3c027b2f9fb: Verifying Checksum
+a3c027b2f9fb: Download complete
+2747e6c8d819: Verifying Checksum
+2747e6c8d819: Download complete
+3c22fac40b66: Pull complete
+dbac173c1029: Pull complete
+deac9051b738: Verifying Checksum
+deac9051b738: Download complete
+82e1d004f308: Verifying Checksum
+82e1d004f308: Download complete
+3665ad25ef38: Verifying Checksum
+3665ad25ef38: Download complete
+13376592ef33: Pull complete
+4605281e072a: Verifying Checksum
+4605281e072a: Download complete
+35c66b68003d: Pull complete
+bf691e1ca659: Verifying Checksum
+bf691e1ca659: Download complete
+492e724a2ef4: Pull complete
+3a40bc726b4e: Verifying Checksum
+3a40bc726b4e: Download complete
+04fd513cac7e: Pull complete
+8a61e19ddca3: Verifying Checksum
+8a61e19ddca3: Download complete
+73ce08fe3572: Pull complete
+30d9dea4b011: Pull complete
+9cc3a2096311: Pull complete
+3a40bc726b4e: Pull complete
+812a6dcaec85: Pull complete
+756eeba3b167: Pull complete
+a3c027b2f9fb: Pull complete
+2747e6c8d819: Pull complete
+deac9051b738: Pull complete
+82e1d004f308: Pull complete
+bf691e1ca659: Pull complete
+3665ad25ef38: Pull complete
+4605281e072a: Pull complete
+8a61e19ddca3: Pull complete
+da10371a0dd3: Verifying Checksum
+da10371a0dd3: Download complete
+da10371a0dd3: Pull complete
+Digest: sha256:606384493cf478a906aa9e73daf83a96d51d40c87aba6631f6a961b036e7653d
+Status: Downloaded newer image for jenkinsxio/jenkinsx:0.0.43
+ ---> c2f00411256c
+Step 2/3 : COPY plugins.txt /usr/share/jenkins/ref/myplugins.txt
+ ---> 8e9cfdd96707
+Step 3/3 : RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/myplugins.txt
+ ---> Running in 71a461a4a280
+Creating initial locks...
+Analyzing war...
+Registering preinstalled plugins...
+Using version-specific update center: https://updates.jenkins.io/2.150...
+Downloading plugins...
+Downloading plugin: greenballs from https://updates.jenkins.io/download/plugins/greenballs/1.15/greenballs.hpi
+
+WAR bundled plugins:
+
+
+Installed plugins:
+ace-editor:1.1
+ant:1.9
+apache-httpcomponents-client-4-api:4.5.5-3.0
+artifactory:2.16.2
+authentication-tokens:1.3
+blueocean-autofavorite:1.2.2
+blueocean-bitbucket-pipeline:1.9.0
+blueocean-commons:1.9.0
+blueocean-config:1.9.0
+blueocean-core-js:1.9.0
+blueocean-dashboard:1.9.0
+blueocean-display-url:2.2.0
+blueocean-events:1.9.0
+blueocean-git-pipeline:1.9.0
+blueocean-github-pipeline:1.9.0
+blueocean-i18n:1.9.0
+blueocean-jira:1.9.0
+blueocean-jwt:1.9.0
+blueocean-personalization:1.9.0
+blueocean-pipeline-api-impl:1.9.0
+blueocean-pipeline-editor:1.9.0
+blueocean-pipeline-scm-api:1.9.0
+blueocean-rest-impl:1.9.0
+blueocean-rest:1.9.0
+blueocean-web:1.9.0
+blueocean:1.9.0
+bouncycastle-api:2.17
+branch-api:2.1.2
+cloudbees-bitbucket-branch-source:2.4.0
+cloudbees-folder:6.7
+command-launcher:1.2
+config-file-provider:3.4.1
+configuration-as-code:1.3
+credentials-binding:1.17
+credentials:2.1.18
+display-url-api:2.3.0
+docker-commons:1.13
+docker-workflow:1.17
+durable-task:1.28
+favorite:2.3.2
+git-client:2.7.4
+git-server:1.7
+git:3.9.1
+gitea:1.0.8
+github-api:1.95
+github-branch-source:2.4.1
+github:1.29.3
+gitlab-plugin:1.5.11
+gradle:1.29
+greenballs:1.15
+handlebars:1.1.1
+handy-uri-templates-2-api:2.1.6-1.0
+htmlpublisher:1.17
+ivy:1.28
+jackson2-api:2.9.8
+javadoc:1.4
+jenkins-design-language:1.9.0
+jira:3.0.5
+jquery-detached:1.2.1
+jsch:0.1.54.2
+junit:1.26.1
+jx-resources:1.0.24
+kubernetes-credentials-provider:0.10
+kubernetes-credentials:0.4.0
+kubernetes:1.13.7
+lockable-resources:2.3
+mailer:1.22
+matrix-project:1.13
+maven-plugin:3.2
+mercurial:2.4
+metrics:4.0.2.2
+momentjs:1.1.1
+pipeline-build-step:2.7
+pipeline-graph-analysis:1.9
+pipeline-input-step:2.8
+pipeline-milestone-step:1.3.1
+pipeline-model-api:1.3.3
+pipeline-model-declarative-agent:1.1.1
+pipeline-model-definition:1.3.3
+pipeline-model-extensions:1.3.3
+pipeline-rest-api:2.10
+pipeline-stage-step:2.3
+pipeline-stage-tags-metadata:1.3.3
+pipeline-stage-view:2.10
+plain-credentials:1.4
+pubsub-light:1.12
+resource-disposer:0.12
+scm-api:2.3.0
+script-security:1.49
+sse-gateway:1.16
+ssh-credentials:1.14
+structs:1.17
+support-core:2.52
+token-macro:2.5
+variant:1.1
+workflow-aggregator:2.6
+workflow-api:2.33
+workflow-basic-steps:2.13
+workflow-cps-global-lib:2.12
+workflow-cps:2.61
+workflow-durable-task-step:2.26
+workflow-job:2.30
+workflow-multibranch:2.20
+workflow-scm-step:2.7
+workflow-step-api:2.17
+workflow-support:2.23
+ws-cleanup:0.36
+Cleaning up locks
+ ---> a3f22cc451e1
+Successfully built a3f22cc451e1
+Successfully tagged 944973271641.dkr.ecr.eu-north-1.amazonaws.com/voytekvoytek/testjenkinsx:0.0.1
+The push refers to a repository [944973271641.dkr.ecr.eu-north-1.amazonaws.com/voytekvoytek/testjenkinsx]
+77f80cae9ded: Preparing
+40719ef375bf: Preparing
+72aa05532a54: Preparing
+f303d6979727: Preparing
+3a8ba44133a9: Preparing
+8fb97c5137bf: Preparing
+b90b73a43f6d: Preparing
+f8a758ab301e: Preparing
+343749c4fe88: Preparing
+dfd5103432b3: Preparing
+e91a0bf6f545: Preparing
+f593e54857ae: Preparing
+2197dd8e765f: Preparing
+e2f79d3cd132: Preparing
+95e5b784b2f2: Preparing
+da6e33c4837f: Preparing
+8b03d85e1b2c: Preparing
+fe871a7fd805: Preparing
+ad0e4892fe8a: Preparing
+9fbd952c30f1: Preparing
+4b36760bf501: Preparing
+9f89204fd3b0: Preparing
+1219c65bb75a: Preparing
+12bc6638f550: Preparing
+6f9340f5323e: Preparing
+9ea63cdbc429: Preparing
+ef68f6734aa4: Preparing
+8fb97c5137bf: Waiting
+b90b73a43f6d: Waiting
+f8a758ab301e: Waiting
+343749c4fe88: Waiting
+dfd5103432b3: Waiting
+e91a0bf6f545: Waiting
+f593e54857ae: Waiting
+2197dd8e765f: Waiting
+e2f79d3cd132: Waiting
+95e5b784b2f2: Waiting
+da6e33c4837f: Waiting
+8b03d85e1b2c: Waiting
+fe871a7fd805: Waiting
+ad0e4892fe8a: Waiting
+9fbd952c30f1: Waiting
+4b36760bf501: Waiting
+9f89204fd3b0: Waiting
+1219c65bb75a: Waiting
+12bc6638f550: Waiting
+6f9340f5323e: Waiting
+9ea63cdbc429: Waiting
+ef68f6734aa4: Waiting
+40719ef375bf: Pushed
+77f80cae9ded: Pushed
+3a8ba44133a9: Pushed
+f303d6979727: Pushed
+f8a758ab301e: Pushed
+343749c4fe88: Pushed
+8fb97c5137bf: Pushed
+f593e54857ae: Pushed
+dfd5103432b3: Pushed
+e91a0bf6f545: Pushed
+2197dd8e765f: Pushed
+95e5b784b2f2: Pushed
+b90b73a43f6d: Pushed
+da6e33c4837f: Pushed
+8b03d85e1b2c: Pushed
+fe871a7fd805: Pushed
+ad0e4892fe8a: Pushed
+9fbd952c30f1: Pushed
+9f89204fd3b0: Pushed
+72aa05532a54: Pushed
+e2f79d3cd132: Pushed
+12bc6638f550: Pushed
+6f9340f5323e: Pushed
+9ea63cdbc429: Pushed
+4b36760bf501: Pushed
+ef68f6734aa4: Pushed
+1219c65bb75a: Pushed
+0.0.1: digest: sha256:8b57134703f1e9e2a42851f3eb863ac04279e1eb8901c38f9d20074049aaa707 size: 5956
+Build complete in 50.384668883s
+Starting test...
+Test complete in 3.408µs
+changeme -> 944973271641.dkr.ecr.eu-north-1.amazonaws.com/voytekvoytek/testjenkinsx:0.0.1@sha256:8b57134703f1e9e2a42851f3eb863ac04279e1eb8901c38f9d20074049aaa707
+[Pipeline] sh
++ cat VERSION
++ jx step tag --version 0.0.1
+Tag v0.0.1 created and pushed to remote origin
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Promote to Environments)
+[Pipeline] sh
++ cat VERSION
++ jx step changelog --version v0.0.1
+Using batch mode as inside a pipeline
+Converted /tmp/jenkinsTests.tmp/jenkins7184489388106648720test/workspace/job to an unshallow repository
+Generating change log from git ref b6a8dfb701cf9782f8b44849153bc0f31bc91fc4 => c2487dd38962280946bace716e3313fe0e3e6083
+Failed to enrich commits with issues: User.jenkins.io "" is invalid: metadata.name: Required value: name or generateName is required
+Failed to enrich commits with issues: User.jenkins.io "" is invalid: metadata.name: Required value: name or generateName is required
+Finding issues in commit messages using git format
+No release found for voytekvoytek/testjenkinsx and tag v0.0.1 so creating a new release
+Updated the release information at https://github.com/voytekvoytek/testjenkinsx/releases/tag/v0.0.1
+generated: /tmp/jenkinsTests.tmp/jenkins7184489388106648720test/workspace/job/templates/release.yaml
+Created Release testjenkinsx-0-0-1 resource in namespace jx
+Updating PipelineActivity voytekvoytek-testjenkinsx-master-1 with version 0.0.1
+Updated PipelineActivities voytekvoytek-testjenkinsx-master-1 with release notes URL: https://github.com/voytekvoytek/testjenkinsx/releases/tag/v0.0.1
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
